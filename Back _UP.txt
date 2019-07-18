@@ -1,0 +1,110 @@
+index
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>site--nuntuch.repl.co</title>
+
+	<script>
+
+	</script>
+
+	<style type="text/css">
+	</style>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+	<div class="nav">
+		<div class="nav-header">
+			<div class="nav-title">
+				site--nuntuch.repl.co
+			</div>
+		</div>
+		<div class="nav-btn">
+			<label for="nav-check">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+  </div>
+  <input type="checkbox" id="nav-check">
+  <div class="nav-links">
+    <a href="https://site--nuntuch.repl.co" target="_blank">Home</a>
+    <a href="" target="_blank">Gateway</a>
+    <a href="https://site--nuntuch.repl.co/tools.html" >Tools</a>
+    <!-- <a href="https://site--nuntuch.repl.co/tools.html" target="_blank">Tools</a> -->
+    <a href="https://site--nuntuch.repl.co/projects.html" target="_blank">Projects</a>
+    <a href="https://site--nuntuch.repl.co/aboult.html" target="_blank">About</a>
+  </div>
+</div>
+
+
+<div class="header">
+  <h1>Smart Tools</h1>
+</div>
+
+<div class="row">
+  <div class="col-3 col-s-3 menu">
+  <!-- <div style=" border-radius: 1em "> -->
+    <ul>
+      <li  style=" border-radius: 1em ">Google Translater</li>
+      <li  style=" border-radius: 1em ">Google Docs</li>
+      <li  style=" border-radius: 1em " >Google Slid</li>
+      <li  style=" border-radius: 1em ">One Note</li>
+      <li  style=" border-radius: 1em ">Microsoft Word Online</li>
+      <li  style=" border-radius: 1em ">Microsoft Powerpoint Online</li>
+      <li  style=" border-radius: 1em ">Google Drive</li>
+      <li  style=" border-radius: 1em ">Google Drive KMUTT</li>
+      <li  style=" border-radius: 1em ">One Drive</li>
+      <li  style=" border-radius: 1em ">LEB 2</li>
+      <li  style=" border-radius: 1em ">New Acis</li>
+      <li  style=" border-radius: 1em ">Song</li>
+      <!-- <li>Google Drive</li> -->
+    </ul>
+  <!-- </div> -->
+  </div>
+
+  <div class="col-6 col-s-9">
+     <h1>Schedule</h1>
+     <img src="img/ตารางสอน.JPG">
+    <!-- <p>Chania is the capital of the Chania region on the island of Crete. The city can be divided in two parts, the old town and the modern city.</p> --> 
+  </div>
+
+  <div class="col-3 col-s-12">
+    <div class="aside"  style=" border-radius: 1em ">
+      <h2>Oliv</h2>
+      <p>INT 204</p>
+      <p>INT 205</p>
+      <p>INT 207</p>
+      <p>INT 320</p>
+      <h2>NGE Learning</h2>
+      <p>INT 204</p>
+      <p>INT 205</p>
+      <p>INT 207</p>
+      <p>INT 320</p>
+      <h2>Lecture</h2>
+      <p>Nuntuch Notebook</p>
+      <p>นันทัช Notebook</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <!-- <p>Resize the browser window to see how the content respond to the resizing.</p> -->
+  <p>site--nuntuch.repl.co namely devlop of nuntuch.github.io for education and practice use pure html css js  </p>
+
+</div>
+
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+<script src="script.js"> 
+</script>
+</body>
+</html>
+
+/index
