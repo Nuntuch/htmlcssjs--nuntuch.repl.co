@@ -7,7 +7,12 @@
 
 	<script>
 
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+  }
+
 	</script>
+
 
 	<style type="text/css">
 
@@ -61,15 +66,10 @@
 
 
 
-
-
-
-
-
-  <div class="col-6 col-s-9">
+  <div class="col-6 col-s-9" >
      
-<iframe height="1000px" width="300px" src="iframe_menutool.html
-" name="iframe_a"></iframe>
+<iframe src="iframe_menutool.html" name="iframe_a" frameborder="0" scrolling="no" onload="resizeIframe(this)" height="1000px"></iframe>
+
 
      
   </div>
