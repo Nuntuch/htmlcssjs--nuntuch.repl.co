@@ -50,6 +50,7 @@ li span.toggle {
   background:#1a1a1a;
   text-align:left;
   display:none;
+  /* z-index: 1009; */
 }
 .dropdown li {
   display:block;

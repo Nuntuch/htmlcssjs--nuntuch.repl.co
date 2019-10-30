@@ -3,6 +3,44 @@
 
 <body>
 
-<iframe src="https://onedrive.live.com/embed?cid=0962D0D148F6C31E&resid=962D0D148F6C31E%21105&authkey=AO6i58LZB_J7Onw" width="98" height="120" frameborder="0" scrolling="no"></iframe>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div id="resultUserName"></div>
+  <div id="resultPassword"></div>
+
+<script>
+// Check browser support
+if (typeof(Storage) !== "undefined") {
+  // Store
+  sessionStorage.setItem("resultUserName", "admin");
+  sessionStorage.setItem("resultUserPassword", "tot");
+  // Retrieve
+  document.getElementById("resultUserName").innerHTML = sessionStorage.getItem("resultUserName");
+  document.getElementById("resultPassword").innerHTML = sessionStorage.getItem("resultPassword");
+} else {
+  document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+}
+</script>
+
+<!-- https://docs.google.com/document/d/1PdMcIXI-eT9spWUfwXcimrE4V4StRxnOys-IO-o-Uc0/edit?usp=sharing
+<iframe src="https://onedrive.live.com/embed?cid=0962D0D148F6C31E&resid=962D0D148F6C31E%21105&authkey=AO6i58LZB_J7Onw" width="98" height="120" frameborder="0" scrolling="no"></iframe> -->
 </body>
 </html>
