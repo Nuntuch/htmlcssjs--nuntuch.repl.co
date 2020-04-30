@@ -5,35 +5,51 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>site--nuntuch.repl.co</title>
 
-	<script>
+	<!-- Oliv Menu -->
+		<!-- <link rel="stylesheet" type="text/css" href="iframe_style-menutool.css">
 
-	</script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="iframe_script-menutool.js"></script> -->
 
-<!-- /* Face Book Post */ -->
+  <!-- Oliv Menu -->
 
-<!-- WRONG! -->
-<style type="text/css">
-.fb-post {
-  width: 100px;
-}
-</style>
-<div 
-  class="fb-post"
-  data-href="{your-post-url}">
-</div>
 
-<!-- CORRECT -->
-<div 
-  class="fb-post" 
-  data-width="100"
-  data-href="{your-post-url}">
-</div>
+	<style type="text/css">
+		.fb-post {
+			width: 100px;
+		}
 
-<!-- /* Face Book Post */ -->
+/* iframe{ */
+        /* width: 100%; */
+        /* border: 2px solid #ccc; */
+    /* } */
+
+
+	</style>
 
 	<style type="text/css">
 	</style>
 	<link rel="stylesheet" type="text/css" href="style.css">
+<!-- 
+  <style>
+    /* For mobile phones: */
+#if_ms-team-vdo {
+  width: 95%;
+}
+
+@media only screen and (min-width: 600px; height: 100%;) {
+  /* For tablets: */
+
+ #if_ms-team-vdo {width: 75%; height: 100%;}
+
+}
+@media only screen and (min-width: 768px; height: 100%;) {
+  /* For desktop: */
+  #if_ms-team-vdo {width: 50%;}
+
+}
+  </style> -->
+
 </head>
 
 <body>
@@ -41,7 +57,7 @@
 	<div class="nav">
 		<div class="nav-header">
 			<div class="nav-title">
-				site--nuntuch.repl.co
+				htmlcssjs.nuntuch.repl.co
 			</div>
 		</div>
 		<div class="nav-btn">
@@ -56,18 +72,24 @@
     <a href="https://site--nuntuch.repl.co" >Home</a>
     <a href="https://site--nuntuch.repl.co/gateway.html" target="_blank">Gateway</a>
     <a href="https://site--nuntuch.repl.co/tools.html" >Tools</a>
-    <!-- <a href="https://site--nuntuch.repl.co/tools.html" target="_blank">Tools</a> -->
     <a href="https://site--nuntuch.repl.co/projects.html" target="_blank">Projects</a>
-    <!-- <a href="https://site--nuntuch.repl.co/aboult.html" target="_blank">About</a> -->
     
     <!-- Login -->
-    <button id = "button_login" onclick="document.getElementById('id01').style.display='block'" style="width: auto; height:auto;background-position: center;background-repeat: no-repeat;background-size: cover;">Login</button>
+    <!-- <button id = "button_login" onclick="document.getElementById('id01').style.display='block'" style="width: auto; height:auto;background-position: center;background-repeat: no-repeat;background-size: cover;"><div id="status">Login
+     -->
+     <!-- <button id = "button_login" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><div id="status">Login
+     
+   </div></button> -->
+
+
+   <button id = "button_login" onclick="document.getElementById('id01').style.display='block'" style="width:auto;border-radius:15px;"><div id="status">Login</div></button>
+
+
 
 <div id="id01" class="modal">
   
-  <!-- <form class="modal-content animate" action="/action_page.php"> -->
   
-  <form onsubmit="return false;" class="modal-content animate">
+  <form id="form_login" onsubmit="return false;" class="modal-content animate">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="img/2686119a3f419dcc566fd7be49e1d959.png" alt="Avatar" class="avatar" style="width: 200px; height: 200px;">
@@ -78,7 +100,7 @@
       <input type="text" placeholder="Enter Username" name="inputUsername" id="inputUsername" required>
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="inputPassword" required>
+      <input type="password" placeholder="Enter Password" name="inputPassword" id="inputPassword" required>
         
       <button id ="id = "button_login"" type="submit" onclick="CheckLogin()">Login</button>
       <label>
@@ -95,201 +117,714 @@
     <!-- Login -->
     <!-- Login Script -->
    <script>
+  document.getElementById("status").innerHTML = sessionStorage.getItem("status");
+   
+document.getElementById("status").innerHTML = "Login"
+
+// document.getElementById("status") = "Login"
+
+  //  if (typeof(Storage) == "undefined") {
+   if (sessionStorage.getItem("status") != "admin") {
+     document.getElementById("status").innerHTML = "Login"
+    //  document.getElementById("status") = "Login"
+
+   }else{// Retrieve
+  document.getElementById("status").innerHTML = sessionStorage.getItem("status");
+  // document.getElementById("status") = sessionStorage.getItem("status");
+   }
+
+     
     function CheckLogin(){
 		inputUsername = document.getElementById("inputUsername").value;
-		// var inputUsername = document.getElementById("inputUsername").value;
-		var inputPassword = document.getElementById("inputPassword");
-		// document.getElementById("inputUsername").disabled = true;
-		// document.getElementById("inputPassword").disabled = true;
-		// document.getElementById("buyButton").style.visibility = "hidden";
-		// budget = budget - 100;
-		// document.getElementById("BudgetNote").innerHTML = budget;
-	// if (inputUsername == "admin") {
-	if (inputUsername == "admin") {
-  //  if(inputPassword == "511"){
+		inputPassword = document.getElementById("inputPassword").value;
+
+ 
+  var sha1 = calcSha1(inputPassword);
+  console.log(sha1)
+	
+
+	if (inputUsername == "admin" && sha1 == "0b080119cbf1138edfa9132471e1a661") {
+	// if (inputUsername == "admin" && inputPassword == '555') {
+
     if (typeof(Storage) !== "undefined") {
   // Store
-  sessionStorage.setItem("resultUserName", "admin");
-  sessionStorage.setItem("resultUserPassword", "tot");
+  sessionStorage.setItem("status", "admin");
   // Retrieve
-  document.getElementById("resultUserName").innerHTML = sessionStorage.getItem("resultUserName");
-  document.getElementById("resultPassword").innerHTML = sessionStorage.getItem("resultPassword");
+  // document.getElementById("status").innerHTML = sessionStorage.getItem("status");
+ window.location.reload();
 } else {
-  document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+  document.getElementById("status").innerHTML = "Sorry, your browser does not support Web Storage...";
 }
 
-//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// <!-- 
+//     if (typeof(Storage) !== "undefined") {
+//   // Store
+//   sessionStorage.setItem("resultUserName", "admin");
+//   sessionStorage.setItem("resultUserPassword", "tot");
+//   // Retrieve
+//   document.getElementById("resultUserName").innerHTML = sessionStorage.getItem("resultUserName");
+//   document.getElementById("resultPassword").innerHTML = sessionStorage.getItem("resultPassword");
+// } else {
+//   document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+// } -->
+
+
+
+
+
 }  
   
   }
 </script>
-    <!-- Login Script -->
 
+
+  
   </div>
 </div>
 
 
 <div class="header">
-  <h1>Smart Tools</h1> <div id="resultUserName"></div>
-  <!-- <!-- <a href="https://1drv.ms/p/s!Ah7D9kjR0GIJgQFJ1egP-ZlZ2gdr" target="_private">Work of LNG221</a> -->
-
-  
+  <h1>Smart Tools</h1>
+   <!-- <div id="resultUserName">
+     
+   </div> -->
 </div>
-
-<!-- facebook post -->
-
-<!-- <div class="fb-post" data-href="https://www.facebook.com/chokun.pittayatronkun/posts/2379212268999688" data-width="500"></div> -->
-
-<!-- facebook post -->
-
-
-
-
 
 <div class="row">
   <div class="col-3 col-s-3 menu">
   <!-- <div style=" border-radius: 1em "> -->
+  <ul>  
+   <div id = "workdrive">
+  <li style=" border-radius: 1em"><h2>Work Drive</h2></li>
+
+
+  <li style=" border-radius: 1em">
+    <div class="dropdown">
+  <button onclick="myFunction1()" class="dropbtn" style="border-radius: 1em">Google Drive</button>
+  
+  <div id="myDropdown1" class="dropdown-content" style="background-color : blue ; border-radius: 1em">
+     <ul>
+     <li  style=" border-radius: 1em">
+        <a href="https://drive.google.com/drive/u/1/folders/1aWkaNtnnILm5U7q1VNVaY52q7gJbMBRp" style="background-color : yellow ; border-radius: 1em">
+          INT206
+        </a>
+      </li>     
+      <li  style=" border-radius: 1em">
+        <a href="https://drive.google.com/drive/u/1/folders/1cjNyIhuijGBzIW3CveVqoijm1IgktnoR" style="background-color : yellow ; border-radius: 1em">
+          INT301
+        </a>
+      </li>
+      <li  style=" border-radius: 1em">
+        <a href="https://drive.google.com/drive/folders/1n9PFubA6qDER3BRMc7TwyGueNNQFLT0W?usp=sharing" style="background-color : yellow ; border-radius: 1em">
+         INT304 
+        </a>
+      </li>
+      <li  style=" border-radius: 1em">
+        <a href="https://drive.google.com/drive/u/1/folders/1ZewXyUGN2AlZ_JSSvoZhzWuNztUy0dAp" style="background-color : yellow ; border-radius: 1em">
+         INT306 
+        </a>
+      </li>
+      <li  style=" border-radius: 1em">
+        <a href="https://drive.google.com/drive/u/1/folders/1frFV5O2t7nt4_xYytNJVH5oazkvgNTvu" style="background-color : yellow ; border-radius: 1em">
+         INT307 
+        </a>
+      </li>
+      <li  style=" border-radius: 1em">
+        <a href="https://drive.google.com/drive/u/1/folders/1-DzxGF-XyKmTf_hAz4OSN03xTRRYGJHl" style="background-color : yellow ; border-radius: 1em">
+         INT353 
+        </a>
+      </li>
+      <li  style=" border-radius: 1em">
+        <a href="https://drive.google.com/drive/u/1/folders/1Nt05wjxBMd2xYFL5rWVZLjVMti4I70ES" style="background-color : yellow ; border-radius: 1em">
+         INT397-8 
+        </a>
+      </li>
+       <li  style=" border-radius: 1em">
+        <a href="#" style="background-color : yellow ; border-radius: 1em">
+          LNG201_G2
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ///////////////////////////////////////////////////////////// -->
+   <div class="dropdown">
+  <button onclick="myFunction6()" class="dropbtn" style="border-radius: 1em">One Drive</button>
+  
+  <div id="myDropdown6" class="dropdown-content" style="background-color : blue ; border-radius: 1em">
+     <ul>
+     <li  style=" border-radius: 1em">
+        <a href="https://www.udemy.com/th/" style="background-color : yellow ; border-radius: 1em">
+          INT206
+        </a>
+      </li>     
+      <li  style=" border-radius: 1em">
+        <a href="#" style="background-color : yellow ; border-radius: 1em">
+          INT301
+        </a>
+      </li>
+      <li  style=" border-radius: 1em">
+        <a href="https://1drv.ms/u/s!Ah7D9kjR0GIJgVvL1jsIXfx0Xd1O?e=DcyA9N" style="background-color : yellow ; border-radius: 1em">
+          INT304
+        </a>
+      </li>
+      <li  style=" border-radius: 1em">
+        <a href="#" style="background-color : yellow ; border-radius: 1em">
+          INT306
+        </a>
+      </li>
+      <li  style=" border-radius: 1em">
+        <a href="#" style="background-color : yellow ; border-radius: 1em">
+          INT307
+        </a>
+      </li>
+      <li  style=" border-radius: 1em">
+        <a href="#" style="background-color : yellow ; border-radius: 1em">
+          INT397-8
+        </a>
+      </li>
+      <li  style=" border-radius: 1em">
+        <a href="https://1drv.ms/u/s!Ah7D9kjR0GIJgT6aUBFBTeftE4lz?e=dxdOns" style="background-color : yellow ; border-radius: 1em">
+          INT353
+        </a>
+      </li>
+      <li  style=" border-radius: 1em">
+        <a href="#" style="background-color : yellow ; border-radius: 1em">
+          LNG201_G2
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+
+  </li>
+
+</div>  
+  <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- https://www.udemy.com/th/ -->
+
+  <li style=" border-radius: 1em"><h2>Gateway of Work Contact</h2></li>
+
+  <li style=" border-radius: 1em">
+    <div class="dropdown">
+  <button onclick="myFunction2()" class="dropbtn" style="border-radius: 1em">Facebook Group</button>
+  
+  <div id="myDropdown2" class="dropdown-content">
+     <ul>
+     <li  style=" border-radius: 1em"><a href="https://www.facebook.com/groups/276554212827019/?epa=SEARCH_BOX">INT206</a></li>
+     <li  style=" border-radius: 1em"><a href="https://www.facebook.com/groups/512691049360970/?epa=SEARCH_BOX">INT301</a></li>
+      <li  style=" border-radius: 1em"><a href="https://www.facebook.com/groups/845953665853995/?multi_permalinks=852365851879443%2C852294235219938%2C852264531889575%2C847556985693663&notif_id=1578540746136464&notif_t=group_activity&_rdc=2&_rdr">INT304</a></li>
+     <li  style=" border-radius: 1em"><a href="#">INT306</a></li>
+     <li  style=" border-radius: 1em"><a href="#">INT307</a></li>
+     <li  style=" border-radius: 1em"><a href="https://www.facebook.com/groups/620294478727074/">INT397-8</a></li>
+     <li  style=" border-radius: 1em"><a href="https://www.facebook.com/groups/2757742724245875/">LNG201_G2</a></li>
+    </ul>
+  </div>
+</div>
+
+    <div class="dropdown">
+  <button onclick="myFunction11()" class="dropbtn" style="border-radius: 1em">Email AJ.&&TA</button>
+  
+  <div id="myDropdown11" class="dropdown-content">
+     <ul>
+     <li  style=" border-radius: 1em"><a href="https://www.facebook.com/groups/276554212827019/?epa=SEARCH_BOX">INT206</a></li>
+     <li  style=" border-radius: 1em"><a href="https://www.facebook.com/groups/512691049360970/?epa=SEARCH_BOX">INT301</a></li>
+      <li  style=" border-radius: 1em"><a href="https://www.facebook.com/groups/845953665853995/?multi_permalinks=852365851879443%2C852294235219938%2C852264531889575%2C847556985693663&notif_id=1578540746136464&notif_t=group_activity&_rdc=2&_rdr">INT304</a></li>
+     <li  style=" border-radius: 1em"><a href="#">INT306</a></li>
+     <li  style=" border-radius: 1em"><a href="#">INT307</a></li>
+     <li  style=" border-radius: 1em"><a href="https://www.facebook.com/groups/620294478727074/">INT397-8</a></li>
+     <li  style=" border-radius: 1em"><a href="https://www.facebook.com/groups/2757742724245875/">LNG201_G2</a></li>
+    </ul>
+  </div>
+</div>
+
+<ul>
+<li  style=" border-radius: 1em"><a href="https://whereby.com/sit60126"><center>WhereBy SIT60126</center></a></li>
+    </ul>
+
+
+
+  </li>
+  <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+      <li  style=" border-radius: 1em "><h2>Subject Tools</h2></li>
+
+  <li style=" border-radius: 1em">
+    <div class="dropdown">
+  <button onclick="myFunction3()" class="dropbtn" style="border-radius: 1em">INT206</button>
+  
+  <div id="myDropdown3" class="dropdown-content">
+     <ul>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+    </ul>
+  </div>
+</div>
+
+
+    <div class="dropdown">
+  <button onclick="myFunction4()" class="dropbtn" style="border-radius: 1em">INT353</button>
+  
+  <div id="myDropdown4" class="dropdown-content">
+     <ul>
+    <!-- <li  style=" border-radius: 1em"><a href="https://onedrive.live.com/edit.aspx?resid=69004584F40EB606!1016&ithint=file%2cpptx&authkey=!AJqzRkeujJfL_WM">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="https://www.draw.io/#G1A-iOnb7Xpt2-zRH6XB_Qx_56Bkz5zeZz">Comming Soon</a></li> -->
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+    </ul>
+  </div>
+</div>
+
+    <div class="dropdown">
+  <button onclick="myFunction5()" class="dropbtn" style="border-radius: 1em">INT397-8</button>
+  
+  <div id="myDropdown5" class="dropdown-content">
+     <ul>
+       <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+    </ul>
+  </div>
+</div>
+<!-- 
+  </li> -->
+  <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- <li style=" border-radius: 1em"> -->
+    <div class="dropdown">
+  <button onclick="myFunction10()" class="dropbtn" style="border-radius: 1em">INT301</button>
+  
+  <div id="myDropdown10" class="dropdown-content">
+     <ul>
+      <li  style=" border-radius: 1em"><a href="https://cvdi.sit.kmutt.ac.th/">Remote Server SIT.KMUTT.ac.th (Windows Server 2019)</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+    </ul>
+  </div>
+</div>
+   
+
+<div class="dropdown">
+  <button onclick="myFunction7()" class="dropbtn" style="border-radius: 1em">INT304</button>
+  
+  <div id="myDropdown7" class="dropdown-content">
+     <ul>
+    <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="dropdown">
+  <button onclick="myFunction8()" class="dropbtn" style="border-radius: 1em">INT306</button>
+  
+  <div id="myDropdown8" class="dropdown-content">
+     <ul>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="dropdown">
+  <button onclick="myFunction9()" class="dropbtn" style="border-radius: 1em">INT307</button>
+  
+  <div id="myDropdown9" class="dropdown-content">
+     <ul>
+      <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="dropdown">
+  <button onclick="myFunction12()" class="dropbtn" style="border-radius: 1em">LNG201_G2</button>
+  
+  <div id="myDropdown12" class="dropdown-content">
+     <ul>
+      <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+    </ul>
+  </div>
+</div>
+
+    </li>
+  
     <ul>
-      <!-- <li  style=" border-radius: 1em "><a href="https://drive.google.com/open?id=1KTH1MJEo1Bp-ThlWhnXWXpetlssVOcQ7">Work_Drive</a></li> -->
-      <li  style=" border-radius: 1em ">Google Translater</li>
-      <li  style=" border-radius: 1em "><a href="https://docs.google.com/document/u/0/">Google Docs</a></li>
-      <li  style=" border-radius: 1em " ><a href="https://docs.google.com/presentation/u/0/">Google Slid</a></li>
-      <li  style=" border-radius: 1em "><a href="https://web.connect.trimble.com/#/project/RnFXwI07oAE/data/folder/_3p3rBFZ77w">Trimble</a></li>
-      <li  style=" border-radius: 1em "><a href="https://app.sketchup.com/app?hl=en">Sketchup Online</a></li>
-      <li  style=" border-radius: 1em ">One Note</li>
-      <li  style=" border-radius: 1em ">Microsoft Word Online</li>
-      <li  style=" border-radius: 1em ">Microsoft Powerpoint Online</li>
-      <li  style=" border-radius: 1em ">Google Drive</li>
-      <li  style=" border-radius: 1em ">Google Drive KMUTT</li>
-      <li  style=" border-radius: 1em ">One Drive</li>
-      <!-- <li  style=" border-radius: 1em ">LEB 2</li> -->
-      <li  style=" border-radius: 1em "><a href="https://app.leb2.kmutt.ac.th/class">LEB2</a></li>
-      <li  style=" border-radius: 1em "><a href="https://classroom.google.com/u/4/h">Google Classroom</a></li>
-      <li  style=" border-radius: 1em "><a href="https://drive.google.com/drive/u/0/folders/1nTYPmpxgOEcq7cE-72eXTnGE6k08HLNP?fbclid=IwAR2vOgwFlK188TOhjCFyShUmGcCCjmCS-dYRFuNnHrK9svlFtDU1KE4dcGY">INT351_Submit Work</a></li>
+     
+      <li  style=" border-radius: 1em "><h2>KMUTT & SIT Class</h2></li>
+  
       <li  style=" border-radius: 1em "><a href="https://sinfo.kmutt.ac.th/NewAcis">New Acis</a></li>
       
-      <li  style=" border-radius: 1em ">Song</li>
+      <li  style=" border-radius: 1em "><a href="https://app.leb2.kmutt.ac.th/class">LEB2</a></li>
+      <li  style=" border-radius: 1em "><a href="https://classroom.google.com/u/4/h">Google Classroom</a></li>
+      <li  style=" border-radius: 1em "><a href="https://teams.microsoft.com/_#/school//?ctx=teamsGrid">Microsoft Team</a></li>
+
+ 
+      <li  style=" border-radius: 1em "><h2>General Tools</h2></li>
+       
+      <li  style=" border-radius: 1em "><a href="https://web.connect.trimble.com/#/project/RnFXwI07oAE/data/folder/_3p3rBFZ77w">Trimble</a></li>
+      <li  style=" border-radius: 1em "><a href="https://app.sketchup.com/app?hl=en">Sketchup Online</a></li>
+
       <li  style=" border-radius: 1em "><a href="https://www.ilovepdf.com/pdf_to_jpg">PDF TO JPG Online</a></li>
       <li  style=" border-radius: 1em "><a href="https://pdf.io/th/merge/">Merge PDF Online</a></li>
       
+      <li  style=" border-radius: 1em "><a href="https://www.tutorialspoint.com/execute_python_online.php">Edtor Online by Tutorialspoint.com</a></li>
       
-      <!-- <li>Google Drive</li> -->
-      <!-- <li  style=" border-radius: 1em "><div 
-  class="fb-post" 
-  data-href="https://www.facebook.com/permalink.php?story_fbid=894789190884487&id=100010602421208" 
-  data-width="100"></div></li> -->
+    <div id="My-Tools">
+    <li  style=" border-radius: 1em "><h2>My Tools</h2></li>
+
+      <li  style=" border-radius: 1em ">Song</li>
+ </div>
     </ul>
-  <!-- </div> -->
+
+     <div id="fb-postv" >
+      	      <!-- /* Face Book Post */ -->
+			<div class="fb-post" id="fb-post" data-href="https://www.facebook.com/permalink.php?story_fbid=894789190884487&id=100010602421208" data-width="100" width="200px" height="200px">
+      </div>
+      </div>
+     
   </div>
 
-  <div class="col-6 col-s-9">
-     <h1>Schedule</h1>
-     <img src="/ตารางสอน.JPG">
-     <img src="img/ตารางสอบเจน.JPG">
-     <img src="img/GenTableExam.PNG">
-     <img src="img/Mid-term-Examination-timetable-1_62_page-0001.jpg">
-  
 
      
-    <p>
-   <div 
-  class="fb-post" 
-  data-href="https://www.facebook.com/permalink.php?story_fbid=894789190884487&id=100010602421208" 
-  data-width="100"></div>
-      <!-- Chania is the capital of the Chania region on the island of Crete. The city can be divided in two parts, the old town and the modern city.-->
-      </p> 
-  </div>
+
+
+  <div class="col-6 col-s-9">
+   
+  
+     <h1>Schedule</h1> 
+     <div id = "Lecture">  
+
+      <iframe id="if_schedule" src="/iframe_schedule.html" style="width: 100%; height: 165px;border-radius: 1em 1em"></iframe>   
+       <!-- <li style=" border-radius: 1em"> -->
+   
+<!-- <center>
+  <h2> Trello Board Works</h2>
+     <a  style=" border-radius: 1em ;background-color: Green;   padding: 9px" href="https://trello.com/b/YvG6mquh/work-of-sitkmutt">SIT.KMUTT</a>
+
+     <a  style=" border-radius: 1em ;background-color: Green;   padding: 9px" href="https://trello.com/b/4QXL5n8a/work-of-me">Me</a>
+
+    <br>
+    <br>
+
+      <a style=" border-radius: 1em ;background-color: Green;   padding: 9px" href="https://github.com/users/Nuntuch/projects/1">Github Board</a>
+<br>
+<br>
+      <a style=" border-radius: 1em ;background-color: Green;   padding: 9px;"  href="https://teams.microsoft.com/_#/calendarv2">MS Team Calendar</a>
+
+      <a style=" border-radius: 1em ;background-color: Green;   padding: 9px;"  href="https://calendar.google.com/calendar/b/1/r/month?pli=1">Google Calendar</a>
+</center> -->
+    
+    </div>
+     <br>
+ <div id = "head_if_youtubelearner"  style=" border-radius: 1em 1em 0em 0em ;background-color: black; color : white">
+    <br>
+    <center><h3>LESSION ON YOUTUBE</h3></center>
+    <br>
+    </div>
+
+     <iframe id="if_youtubelearner" src="/iframe_youtubelearner.html" style="width: 100%; height: 165px;border-radius: 0em 0em 1em 1em"></iframe>  
+  <br>
+  <!-- <center> -->
+   <div id ="if_o-vdo">
+         <iframe id="if_o-vdo" src="iframe_olivbar.html" frameborder="0" scrolling="no" style= "position: absolute;z-index:99;" ></iframe> 
+     <br>
+    <br>
+    <br>
+    <br>
+     <br>
+     <br>
+    <br>
+    <br>
+    <br>
+    <br> 
+    
+   </div>
+
+  <!-- </center> -->
+     <!-- <div id ="hide_if_ms-team-vdo"> -->
+
+     <!-- </div> -->
+
+    <div id = "head_if_ms-team-vdo"  style=" border-radius: 1em 1em 0em 0em ;background-color: black; color : white">
+    <br>
+    <center><h3>LESSON ON MICROSOFT TEAM</h3></center>
+    <br>
+    </div>
+
+    
+    <!-- <div id = "tail_if_ms-team-vdo"  style=" border-radius: 0em 0em 1em 1em ;background-color: black; z-index: 5;"  >
+    <br>
+    <br>
+    <br>
+    <br>
+    </div> -->
+
+    <!-- <center> -->
+     <div id ="hide_if_ms-team-vdo">
+         <iframe id="if_ms-team-vdo" src="iframe_microsoft-team-vdo.html" frameborder="0" scrolling="no" style= "position: absolute;z-index:99;" ></iframe> 
+    <!-- </center> -->
+     <br>
+    <br>
+    <br>
+      </div>
+    
+    
+
+
+     <img src="/ตารางสอนA2.PNG">
+     <!-- <img src="img/ตารางสอบเจน.JPG">
+     <img src="img/GenTableExam.PNG">
+     -->
+     <!-- <img src="img/Midterm-2_62_page-0001.jpg">  -->
+     <img src="https://www.dropbox.com/s/gk54xig26k96g01/%E0%B8%95%E0%B8%B2%E0%B8%A3%E0%B8%B2%E0%B8%87%E0%B8%AA%E0%B8%AD%E0%B8%99%E0%B8%9B%E0%B8%B53%E0%B9%80%E0%B8%97%E0%B8%AD%E0%B8%A1%202.PNG?raw=1"> 
+
+         
+         <!-- <iframe id="if_telloboard" src="https://trello.com/b/YvG6mquh/work-of-sitkmutt" frameborder="0" ></iframe>  -->
+         <!-- <iframe id="if_telloboard" src="https://trello.com/b/YvG6mquh" frameborder="0" ></iframe> 
+    
+     
+   
+         <iframe id="if_githubboard" src="https://github.com/users/Nuntuch/projects/1" frameborder="0"  ></iframe>  -->
+<!-- 
+        <webview id="foo" src="https://www.github.com/" style="display:inline-flex; width:640px; height:480px"></webview> -->
+
+
+
+   
+
+  <!-- <div id="fb-postv" > -->
+      	      <!-- /* Face Book Post */ -->
+			<!-- <div class="fb-post" id="fb-post" data-href="https://www.facebook.com/permalink.php?story_fbid=894789190884487&id=100010602421208" data-width="100">
+      </div> -->
+        	<!-- /* Face Book Post */ -->
+  <!-- </div> -->
+
+     <!-- <div id ="hide_if_ms-team-vdo">
+         <iframe id="if_ms-team-vdo" src="https://trello.com/b/YvG6mquh/work-of-sitkmutt" frameborder="0" scrolling="no" style= "position: absolute;z-index:99;" ></iframe> 
+    </div>
+     
+     <div id ="hide_if_ms-team-vdo">
+         <iframe id="if_ms-team-vdo" src="https://github.com/users/Nuntuch/projects/1" frameborder="0" scrolling="no" style= "position: absolute;z-index:99;" ></iframe> 
+    </div> -->
+
+
+
+
+
+
+
+
+</div>
+
+ 
+    
+
 
   <div class="col-3 col-s-12">
     <div class="aside"  style=" border-radius: 1em ">
-      <h2>Oliv_Web</h2>
-      <p>INT 204</p>
-      <p>INT 205</p>
-      <p>INT 207</p>
-      <p>INT 320</p>
-      <h2>Oliv_Google Drive</h2>
-      <p>INT 204</p>
-      <p>INT 205</p>
-      <p>INT 207</p>
-      <p>INT 320</p>
+      
+      <h2>Count Down</h2>
+      <iframe src="/iframe_timer_E-learning.html" style="width: 100%; height: 165px;border-radius:25px"></iframe>  
+<iframe src="/iframe_timer_int353.html" style="width: 100%; height: 165px;border-radius:25px"></iframe>
+<iframe src="/iframe_timer_int397-8.html" style="width: 100%; height: 165px;border-radius:25px"></iframe>
+      
+  <div id = "Lecture">
       <h2>Lecture</h2>
-      <!-- <p>In Class Note of SIT.KMUTT Notebook</p> -->
-      <!-- <p>At Home Note of SIT.KMUTT Notebook</p> -->
+    
       <p><a href="https://1drv.ms/u/s!Aq-t18_ljrIz2A9M5_1xV-K7YerB?e=EFanYU">In Class Note of SIT.KMUTT Notebook</a></p>
       <p><a href="">At Home Note of SIT.KMUTT Notebook</a></p>
       <p><a href="https://1drv.ms/u/s!Ah7D9kjR0GIJacmzE_o2qIAjlFk?e=dP0FHj">In Class/At Home Note of SIT.KMUTT Notebook</a></p>
-       <h2>Online Drive</h2>
-      <p><a href="https://drive.google.com/open?id=1KTH1MJEo1Bp-ThlWhnXWXpetlssVOcQ7">Personal Google Drive For Work</a></p>
-       <p><a href="https://drive.google.com/open?id=1-1d2TGIR8NIsdIkGHbB5vvwHdAA61NKu">SIT.KMUTT Google Drive For Work</a></p>
-       <p><a href="">Presonal One Drive For Work</a></p>
-       <p><a href="">SIT.KMUTT One Drive For Work</a></p>
-       <!-- <h2>Quick Past Link</h2>
-       <p><center><div 
-  class="fb-post" 
-  data-href="https://www.facebook.com/permalink.php?story_fbid=894789190884487&id=100010602421208" 
-  data-width="100"></div></center> -->
-</p>
-       
+      
+      <h2>Brief</h2>
+    
+      <p><a href="https://drive.google.com/drive/folders/12_870sYXEE9MF52whGrlMJlE4sv1KzK2">สรุป By บอบาสบู้บี้ IT22</a></p>
+      <p><a href="https://drive.google.com/drive/folders/0B7_yYQbdLgCDdGhQNDU0OUFKY1U">สรุป IT</a></p>
+      <p><a href="https://drive.google.com/drive/u/4/folders/1F7HqjQUmYF_ybIt2gjnXeicwKNMDKu_s">[IT Family] รวมแนวข้อสอบ สรุป</a></p>
+  </div>
+  <br>
+   <div id = "DriveforWorksofSIT.KMUTT">
+       <h2>Google Drive for Works of SIT.KMUTT</h2>
+      <p><a href="https://drive.google.com/open?id=1KTH1MJEo1Bp-ThlWhnXWXpetlssVOcQ7">Personal Google Drive For All Works Of KMUTT</a></p>
+       <p><a href="https://drive.google.com/open?id=1-1d2TGIR8NIsdIkGHbB5vvwHdAA61NKu">SIT.KMUTT Google Drive For All Works Of KMUTT</a></p>
+        <h2>One Drive for Works of SIT.KMUTT</h2>
+       <p><a href="https://1drv.ms/u/s!Ah7D9kjR0GIJgUGMXJXmqI5ket9Z?e=sp4RAq">Presonal One Drive For All Works</a></p>
+       <p><a href="">SIT.KMUTT One Drive For All Works</a></p>
+   </div>
+          
+
+
+
+			
+
+			</div>
+
+        
+
 
     </div>
   </div>
 </div>
-<!-- <br> -->
-<!-- <center><div 
-  class="fb-post" 
-  data-href="https://www.facebook.com/permalink.php?story_fbid=894789190884487&id=100010602421208" 
-  data-width="200"></div>
-</center> -->
 
-<!-- <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D894789190884487%26id%3D100010602421208&width=500" width="500" height="480" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe> -->
+<!-- <iframe width="100%" height="100%" src="iframe_microsoft-team-vdo.html" frameborder="0" scrolling="no" style= "position: absolute;"></iframe>  -->
+<!-- <iframe id="iframe_microsoft-team-vdo" src="iframe_microsoft-team-vdo.html" frameborder="0" scrolling="no" style= "position: absolute;"></iframe>  -->
+
+
+
+  <!-- <div id="fb-postv" > -->
+      	      <!-- /* Face Book Post */ -->
+			<!-- <div class="fb-post" id="fb-post" data-href="https://www.facebook.com/permalink.php?story_fbid=894789190884487&id=100010602421208" data-width="100" width="300px" height="300px">
+      </div> -->
+        	<!-- /* Face Book Post */ -->
+  <!-- </div> -->
+
+
+
+<center>
+
+<!-- hitwebcounter Code START -->
+<a href="https://www.hitwebcounter.com" target="_blank">
+<img src="https://hitwebcounter.com/counter/counter.php?page=7179933&style=0010&nbdigits=5&type=page&initCount=0" title="Visits Count" Alt="analytics counter"   border="0" >
+</a>                                    
+
+
+<!-- hitwebcounter Code START -->
+<a href="https://www.hitwebcounter.com" target="_blank">
+<img src="https://hitwebcounter.com/counter/counter.php?page=7198855&style=0010&nbdigits=5&type=ip&initCount=420" title="User Stats" Alt="webcounterwebsite"   border="0" >
+</a>                                    
+
+</center>                            
+                                                         
+<!--    -->
+
+
+<style type="text/css">
+ 
+  </style>             
+
+
+
 <br>
 <br>
 <br>
 <br>
 <br>
+
+
+
+
+<button onclick="topFunction()" id="myBtn" title="Go to top"><!--Top--></button>
+
+<!-- <script>
+
+function HideContentFunction() {
+ if (sessionStorage.getItem("status")!= "admin"){
+    // var x = document.getElementById("hide_if_ms-team-vdo");
+    var x = document.getElementById("hide_if_ms-team-vdo");
+    // var x = document.getElementById("testhide");
+    // var x = document.getElementById("if_ms-team-vdo");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+}
+
+
+</script> -->
+
+<script src="script.js"> 
+</script>
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="iframe_script-menutool.js"></script>
+
+<!-- <script>
+    // Selecting the iframe element
+    var iframe = document.getElementById("iframe_microsoft-team-vdo");
+    
+    // Adjusting the iframe height onload event
+    iframe.onload = function(){
+        iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+    }
+</script> -->
+
+
+        <!-- facebook Post -->
+          <script>
+              window.fbAsyncInit = function() {
+                FB.init({
+                xfbml      : true,
+                version    : 'v4.0'
+              });
+            }; 
+          </script>
+          <script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+        <!-- facebook Post -->
+
+<script src="sha1.js"></script>
+
+<script>
+
+  // var str = "password";
+  // var md5 = calcMD5(str);
+  // console.log(md5)
+  // 0b080119cbf1138edfa9132471e1a661
+
+</script>
+
+
+</body>
 <footer>
-<!-- <div class="footer"> -->
-  <!-- <p>Resize the browser window to see how the content respond to the resizing.</p> -->
+
   <p>site--nuntuch.repl.co namely devlop of nuntuch.github.io for education and practice use pure html css js  </p>
 
 <!-- </div> -->
 </footer>
-
-<button onclick="topFunction()" id="myBtn" title="Go to top"><!--Top--></button>
-
-
-<!-- facebook post -->
-
-
-<!-- facebook Post -->
-
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      xfbml      : true,
-      version    : 'v4.0'
-    });
-  }; 
-</script>
-<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
-
-
-
-
-<!-- facebook Post -->
-
-<!-- <div 
-  class="fb-post" 
-  data-href="https://www.facebook.com/chokun.pittayatronkun/posts/2379212268999688" 
-  data-width="500"></div> -->
-
-<!-- facebook post -->
-
-<script src="script.js"> 
-</script>
-</body>
 </html>
-
-
-
-<!-- calcMD5("message digest") = "f96b697d7cb7938d525a2f31aaf161d0" -->

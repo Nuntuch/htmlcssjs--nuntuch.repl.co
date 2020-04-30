@@ -13,7 +13,8 @@ img{
 body {
   margin: 0px;
   font-family: 'segoe ui';
-
+  /* background-color: #FFFFF0; */
+  background-color: #76EEC6;
 
   /* login form */
   
@@ -39,6 +40,18 @@ input[type=text], input[type=password] {
   cursor: pointer;
   width: 100%;
 } */
+
+/* Set a style for all buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
 #button_login {
   background-color: #4CAF50;
   /* background-image: url("img/2686119a3f419dcc566fd7be49e1d959.png"); */
@@ -150,7 +163,7 @@ span.psw {
   }
   /* login form */
 }
-
+ 
 .nav {
   height: 50px;
   width: 100%;
@@ -305,8 +318,11 @@ html {
 .header {
   /* background-color: #9933cc; */
   background-color: #FFE4B5 ;
+  /* background-color: #66CDAA ; */
+  /* background-color: #00FF7F ; */
   /* color: #ffffff; */
   color: #FFA500;
+  /* color: #458B74; */
   padding: 15px;
 }
 
@@ -320,7 +336,12 @@ html {
   padding: 8px;
   margin-bottom: 7px;
   background-color: #33b5e5;
+  /* background-color: #90EE90; */
+  /* background-color: #54FF9F; */
+  /* background-color: #76EEC6; */
+  /* background-color: #4EEE94; */
   color: #ffffff;
+  /* color: #2E8B57; */
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
@@ -328,6 +349,7 @@ html {
 /* link */
  a{
   color: #ffffff;
+  /* color: black; */
 }
 
 
@@ -335,6 +357,12 @@ html {
 
 .menu li:hover {
   background-color: #0099cc;
+  /* background-color: #54FF9F; */
+  /* background-color: #00FF7F; */
+  /* color:#008B45; */
+  /* color:#008B00; */
+  /* color:#008B00; */
+
 }
 
 .aside {
@@ -356,10 +384,12 @@ html {
  
   bottom: 0;
   background-color: #0099cc;
+  /* background-color: #00CD66; */
   color: #ffffff;
   text-align: center;
   font-size: 12px;
   padding: 15px;
+  /* z-index: 120; */
 /* } */
 }
 /* For mobile phones: */
@@ -414,3 +444,110 @@ html {
 
 /* dropdown */
 
+
+
+
+
+ /* Dropdown Button */
+.dropbtn {
+  background-color: #3498DB;
+  /* background-color: #43CD80; */
+  /* background-color: #00EE00; */
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+  /* background-color:#2E8B57; */
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  /* position: absolute; */
+  background-color: #f1f1f1;
+  min-width: 160px;
+  /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+
+
+
+   /* For mobile phones: */
+#head_if_ms-team-vdo {
+/* display:block; */
+width: 0px;
+  height: 0px;
+  color: #76EEC6;
+}
+#if_ms-team-vdo {
+  width: 95%;
+  height: 100%;
+}
+#if_o-vdo {
+  width: 95%;
+  height: 100%;
+}
+#if_githubboard {
+  width: 95%;
+  height: 600px;
+}
+#if_telloboard {
+  width: 95%;
+  height: 600px;
+}
+/* #fb-post { */
+  /* width: 95%; */
+  /* height: 100%; */
+/* } */
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+
+ #head_if_ms-team-vdo {width: 106.8%; height: 100%;}
+ #if_ms-team-vdo {width: 75%; height: 100%;}
+ #if_o-vdo {width: 75%; height: 100%;}
+ #if_ms-telloboard {width: 500px; height: 600px;}
+ #if_ms-githubboard {width: 500px; height: 600px;}
+ /* #fb-post {width: 75%; height: 100%;} */
+
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  #head_if_ms-team-vdo {width: 99.9%;height: 100%;}
+  #if_ms-team-vdo {width: 48%;height: 100%;}
+  #if_o-vdo {width: 48%;height: 100%;}
+  #if_telloboard {width: 1080px; height: 800px;}
+  #if_githubboard {width: 1080px; height: 800px;}
+  /* .id01 {width: 50px;height: 100%;} */
+  /* .form_login {width: 50px;height: 100%;} */
+  /* .fb-post{width: 50%;height: 100%;} */
+
+}

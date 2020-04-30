@@ -21,8 +21,37 @@
 <body>
 
 
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>site--nuntuch.repl.co</title>
 
+	<script>
 
+	</script>
+
+	<!-- /* Face Book Post */ -->
+
+	<!-- WRONG! -->
+	<style type="text/css">
+		.fb-post {
+			width: 100px;
+		}
+	</style>
+	<div class="fb-post" data-href="{your-post-url}">
+	</div>
+
+	<!-- CORRECT -->
+	<div class="fb-post" data-width="100" data-href="{your-post-url}">
+	</div>
+
+	<!-- /* Face Book Post */ -->
+
+	<style type="text/css">
+	</style>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
 
 	<div class="nav">
 		<div class="nav-header">
@@ -42,19 +71,82 @@
     <a href="https://site--nuntuch.repl.co" >Home</a>
     <a href="https://site--nuntuch.repl.co/gateway.html" target="_blank">Gateway</a>
     <a href="https://site--nuntuch.repl.co/tools.html" >Tools</a>
-    <!-- <a href="https://site--nuntuch.repl.co/tools.html" target="_blank">Tools</a> -->
     <a href="https://site--nuntuch.repl.co/projects.html" target="_blank">Projects</a>
-    <a href="https://site--nuntuch.repl.co/aboult.html" target="_blank">About</a>
+    
+    <!-- Login -->
+    <button id = "button_login" onclick="document.getElementById('id01').style.display='block'" style="width: auto; height:auto;background-position: center;background-repeat: no-repeat;background-size: cover;">Login</button>
+
+<div id="id01" class="modal">
+  
+  
+  <form onsubmit="return false;" class="modal-content animate">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="img/2686119a3f419dcc566fd7be49e1d959.png" alt="Avatar" class="avatar" style="width: 200px; height: 200px;">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="inputUsername" id="inputUsername" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="inputPassword" required>
+        
+      <button id ="id = "button_login"" type="submit" onclick="CheckLogin()">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#" style="color : red">password?</a></span>
+    </div>
+  </form>
+</div>
+    <!-- Login -->
+    <!-- Login Script -->
+   <script>
+    function CheckLogin(){
+		inputUsername = document.getElementById("inputUsername").value;
+
+	
+	if (inputUsername == "admin") {
+
+    if (typeof(Storage) !== "undefined") {
+  // Store
+  sessionStorage.setItem("resultUserName", "admin");
+  sessionStorage.setItem("resultUserPassword", "tot");
+  // Retrieve
+  document.getElementById("resultUserName").innerHTML = sessionStorage.getItem("resultUserName");
+  document.getElementById("resultPassword").innerHTML = sessionStorage.getItem("resultPassword");
+} else {
+  document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+}
+
+//}
+}  
+  
+  }
+</script>
+    <!-- Login Script -->
+
   </div>
 </div>
 
 
+
+
 <div class="header">
-  <h1>Tools</h1>
+  <h1>All Tools</h1>
   <!-- <!-- <a href="https://1drv.ms/p/s!Ah7D9kjR0GIJgQFJ1egP-ZlZ2gdr" target="_private">Work of LNG221</a> -->
 <!-- <a href="https://drive.google.com/open?id=1eJn-aRjXesax2YuU2EA7E4fFLdGloUx2">Work of MOM</a> -->
   
 </div>
+
+
+
+<!-- //////////////////////////////////////////////////////////////// -->
 
 <!-- 
 
@@ -66,14 +158,368 @@
 
 
 
-
-<iframe height="100%" width="100%" src="iframe_menutool.html" name="iframe_a" frameborder="0" scrolling="no" style= "position: absolute; z-index: 99"></iframe>
+<iframe height="100%" width="100%" src="iframe_menutool.html" name="iframe_a" frameborder="0" scrolling="no" style= "position: absolute;"></iframe>
+<!-- <iframe height="100%" width="100%" src="iframe_menutool.html" name="iframe_a" frameborder="0" scrolling="no" style= "position: absolute; z-index: 99"></iframe> -->
  
 <!-- <iframe height="100%" width="100%" name="iframe_display" frameborder="0" scrolling="no" style= "position: absolute; z-index: 1"></iframe> -->
 
 
  <br><br> 
  <hr>
+
+
+<div class="row">
+  <div class="col-3 col-s-3 menu">
+  <!-- <div style=" border-radius: 1em "> -->
+  <ul>  
+   
+  <li style=" border-radius: 1em"><h2>Work Speac</h2></li>
+  <li style=" border-radius: 1em">
+    <div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn" style="border-radius: 1em">Documents Online</button>
+  
+  <div id="myDropdown" class="dropdown-content">
+     <ul>
+     <li  style=" border-radius: 1em"><a href="https://docs.google.com/document/u/0/">Google Docs</a></a></li>
+      <li  style=" border-radius: 1em"><a href="#">Microsoft Word Online</a></li> 
+      <li  style=" border-radius: 1em"><a href="https://docs.google.com/presentation/u/0/">Google Sild</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Microsoft Powerpoint Online</a></li>
+    <li  style=" border-radius: 1em"><a href="#">Onenote Online</a></li>
+    
+   
+    </ul>
+  </div>
+</div>
+
+  </li>
+  <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+  <li style=" border-radius: 1em">
+    <div class="dropdown">
+  <button onclick="myFunction1()" class="dropbtn" style="border-radius: 1em">Google Drive</button>
+  
+  <div id="myDropdown1" class="dropdown-content" style="background-color : blue ; border-radius: 1em">
+     <ul>
+     <li  style=" border-radius: 1em">
+        <a href="https://drive.google.com/drive/u/1/folders/1aWkaNtnnILm5U7q1VNVaY52q7gJbMBRp" style="background-color : yellow ; border-radius: 1em">
+          INT206
+        </a>
+      </li>     
+      <li  style=" border-radius: 1em">
+        <a href="https://drive.google.com/drive/u/1/folders/1cjNyIhuijGBzIW3CveVqoijm1IgktnoR" style="background-color : yellow ; border-radius: 1em">
+          INT301
+        </a>
+      </li>
+      <li  style=" border-radius: 1em">
+        <a href="https://drive.google.com/drive/u/1/folders/1ZewXyUGN2AlZ_JSSvoZhzWuNztUy0dAp" style="background-color : yellow ; border-radius: 1em">
+         INT306 
+        </a>
+      </li>
+      <li  style=" border-radius: 1em">
+        <a href="https://drive.google.com/drive/u/1/folders/1frFV5O2t7nt4_xYytNJVH5oazkvgNTvu" style="background-color : yellow ; border-radius: 1em">
+         INT307 
+        </a>
+      </li>
+      <li  style=" border-radius: 1em">
+        <a href="https://drive.google.com/drive/u/1/folders/1-DzxGF-XyKmTf_hAz4OSN03xTRRYGJHl" style="background-color : yellow ; border-radius: 1em">
+         INT353 
+        </a>
+      </li>
+      <li  style=" border-radius: 1em">
+        <a href="https://drive.google.com/drive/u/1/folders/1Nt05wjxBMd2xYFL5rWVZLjVMti4I70ES" style="background-color : yellow ; border-radius: 1em">
+         INT397-8 
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ///////////////////////////////////////////////////////////// -->
+   <div class="dropdown">
+  <button onclick="myFunction6()" class="dropbtn" style="border-radius: 1em">One Drive</button>
+  
+  <div id="myDropdown6" class="dropdown-content" style="background-color : blue ; border-radius: 1em">
+     <ul>
+     <li  style=" border-radius: 1em">
+        <a href="https://www.udemy.com/th/" style="background-color : yellow ; border-radius: 1em">
+          INT206
+        </a>
+      </li>     
+      <li  style=" border-radius: 1em">
+        <a href="#" style="background-color : yellow ; border-radius: 1em">
+          INT301
+        </a>
+      </li>
+      <li  style=" border-radius: 1em">
+        <a href="#" style="background-color : yellow ; border-radius: 1em">
+          INT306
+        </a>
+      </li>
+      <li  style=" border-radius: 1em">
+        <a href="#" style="background-color : yellow ; border-radius: 1em">
+          INT307
+        </a>
+      </li>
+      <li  style=" border-radius: 1em">
+        <a href="#" style="background-color : yellow ; border-radius: 1em">
+          INT397-8
+        </a>
+      <li  style=" border-radius: 1em">
+        <a href="#" style="background-color : yellow ; border-radius: 1em">
+          LNG201_G2
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+
+  </li>
+  <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- https://www.udemy.com/th/ -->
+  <li style=" border-radius: 1em">
+    <div class="dropdown">
+  <button onclick="myFunction2()" class="dropbtn" style="border-radius: 1em">Facebook Group</button>
+  
+  <div id="myDropdown2" class="dropdown-content">
+     <ul>
+     <li  style=" border-radius: 1em"><a href="https://www.facebook.com/groups/276554212827019/?epa=SEARCH_BOX">INT206</a></li>
+     <li  style=" border-radius: 1em"><a href="https://www.facebook.com/groups/512691049360970/?epa=SEARCH_BOX">INT301</a></li>
+      <li  style=" border-radius: 1em"><a href="https://www.facebook.com/groups/845953665853995/?multi_permalinks=852365851879443%2C852294235219938%2C852264531889575%2C847556985693663&notif_id=1578540746136464&notif_t=group_activity&_rdc=2&_rdr">INT304</a></li>
+     <li  style=" border-radius: 1em"><a href="#">INT306</a></li>
+     <li  style=" border-radius: 1em"><a href="#">INT307</a></li>
+     <li  style=" border-radius: 1em"><a href="https://www.facebook.com/groups/620294478727074/">INT397-8</a></li>
+     <li  style=" border-radius: 1em"><a href="https://www.facebook.com/groups/2757742724245875/">LNG201_G2</a></li>
+    </ul>
+  </div>
+</div>
+
+    <div class="dropdown">
+  <button onclick="myFunction11()" class="dropbtn" style="border-radius: 1em">Email AJ.&&TA</button>
+  
+  <div id="myDropdown11" class="dropdown-content">
+     <ul>
+     <li  style=" border-radius: 1em"><a href="https://www.facebook.com/groups/276554212827019/?epa=SEARCH_BOX">INT206</a></li>
+     <li  style=" border-radius: 1em"><a href="https://www.facebook.com/groups/512691049360970/?epa=SEARCH_BOX">INT301</a></li>
+      <li  style=" border-radius: 1em"><a href="https://www.facebook.com/groups/845953665853995/?multi_permalinks=852365851879443%2C852294235219938%2C852264531889575%2C847556985693663&notif_id=1578540746136464&notif_t=group_activity&_rdc=2&_rdr">INT304</a></li>
+     <li  style=" border-radius: 1em"><a href="#">INT306</a></li>
+     <li  style=" border-radius: 1em"><a href="#">INT307</a></li>
+     <li  style=" border-radius: 1em"><a href="https://www.facebook.com/groups/620294478727074/">INT397-8</a></li>
+     <li  style=" border-radius: 1em"><a href="https://www.facebook.com/groups/2757742724245875/">LNG221_G2</a></li>
+    </ul>
+  </div>
+</div>
+
+  </li>
+  <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+      <li  style=" border-radius: 1em "><h2>Subject Tools</h2></li>
+
+  <li style=" border-radius: 1em">
+    <div class="dropdown">
+  <button onclick="myFunction3()" class="dropbtn" style="border-radius: 1em">INT206</button>
+  
+  <div id="myDropdown3" class="dropdown-content">
+     <ul>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+    </ul>
+  </div>
+</div>
+
+
+    <div class="dropdown">
+  <button onclick="myFunction4()" class="dropbtn" style="border-radius: 1em">INT353</button>
+  
+  <div id="myDropdown4" class="dropdown-content">
+     <ul>
+       <li  style=" border-radius: 1em"><a href="https://onedrive.live.com/edit.aspx?resid=69004584F40EB606!1016&ithint=file%2cpptx&authkey=!AJqzRkeujJfL_WM">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="https://www.draw.io/#G1A-iOnb7Xpt2-zRH6XB_Qx_56Bkz5zeZz">Comming Soon</a></li>
+    <li  style=" border-radius: 1em"><a href="https://1drv.ms/p/s!Aga2DvSERQBph3hPzSmbTtSSURzg?e=ucNKK9">Present Midterm</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+    </ul>
+  </div>
+</div>
+
+    <div class="dropdown">
+  <button onclick="myFunction5()" class="dropbtn" style="border-radius: 1em">INT397-8</button>
+  
+  <div id="myDropdown5" class="dropdown-content">
+     <ul>
+       <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+    </ul>
+  </div>
+</div>
+<!-- 
+  </li> -->
+  <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- <li style=" border-radius: 1em"> -->
+    <div class="dropdown">
+  <button onclick="myFunction10()" class="dropbtn" style="border-radius: 1em">INT301</button>
+  
+  <div id="myDropdown10" class="dropdown-content">
+     <ul>
+      <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+    </ul>
+  </div>
+</div>
+   
+
+<div class="dropdown">
+  <button onclick="myFunction7()" class="dropbtn" style="border-radius: 1em">INT304</button>
+  
+  <div id="myDropdown7" class="dropdown-content">
+     <ul>
+    <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="dropdown">
+  <button onclick="myFunction8()" class="dropbtn" style="border-radius: 1em">INT306</button>
+  
+  <div id="myDropdown8" class="dropdown-content">
+     <ul>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="dropdown">
+  <button onclick="myFunction9()" class="dropbtn" style="border-radius: 1em">INT307</button>
+  
+  <div id="myDropdown9" class="dropdown-content">
+     <ul>
+      <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+     <li  style=" border-radius: 1em"><a href="#">Comming Soon</a></li>
+    </ul>
+  </div>
+</div>
+
+    </li>
+  
+    <ul>
+     
+      <li  style=" border-radius: 1em "><h2>KMUTT & SIT Class</h2></li>
+  
+      <li  style=" border-radius: 1em "><a href="https://sinfo.kmutt.ac.th/NewAcis">New Acis</a></li>
+      
+      <li  style=" border-radius: 1em "><a href="https://app.leb2.kmutt.ac.th/class">LEB2</a></li>
+      <li  style=" border-radius: 1em "><a href="https://classroom.google.com/u/4/h">Google Classroom</a></li>
+
+ 
+      <li  style=" border-radius: 1em "><h2>General Tools</h2></li>
+       
+      <li  style=" border-radius: 1em "><a href="https://web.connect.trimble.com/#/project/RnFXwI07oAE/data/folder/_3p3rBFZ77w">Trimble</a></li>
+      <li  style=" border-radius: 1em "><a href="https://app.sketchup.com/app?hl=en">Sketchup Online</a></li>
+
+      <li  style=" border-radius: 1em "><a href="https://www.ilovepdf.com/pdf_to_jpg">PDF TO JPG Online</a></li>
+      <li  style=" border-radius: 1em "><a href="https://pdf.io/th/merge/">Merge PDF Online</a></li>
+      
+      
+    <li  style=" border-radius: 1em "><h2>My Tools</h2></li>
+
+      <li  style=" border-radius: 1em ">Song</li>
+    </ul>
+ 
+  </div>
+
+  <div class="col-6 col-s-9">
+     <h1>Schedule</h1>
+     <img src="/ตารางสอนA2.PNG">
+     <!-- <img src="img/ตารางสอบเจน.JPG">
+     <img src="img/GenTableExam.PNG">
+     -->
+     <img src="img/Midterm-2_62_page-0001.jpg"> 
+
+<iframe src="/iframe_timer_E-learning.html" style="width: 100%; height: 165px;"></iframe>  
+<iframe src="/iframe_timer_int353.html" style="width: 100%; height: 165px;"></iframe>
+<iframe src="/iframe_timer_int397-8.html" style="width: 100%; height: 165px;"></iframe>
+
+     
+    <p>
+   <div 
+  class="fb-post" 
+  data-href="https://www.facebook.com/permalink.php?story_fbid=894789190884487&id=100010602421208" 
+  data-width="100"></div>
+     
+      </p> 
+  </div>
+
+  <div class="col-3 col-s-12">
+    <div class="aside"  style=" border-radius: 1em ">
+      <h2>Oliv_Web</h2>
+      <p>INT 206</p>
+      <p>INT 353</p>
+      <p>INT 301</p>
+      <p>INT 304</p>
+      <p>INT 306</p>
+      <p>INT 307</p>
+      <p>INT 397-8</p>
+      <h2>Oliv_Google Drive</h2>
+       <a href="https://drive.google.com/drive/folders/1nSjaiqnxS4E-3ScIpW-o-NUAvKe0VFen"><p>INT 206</p></a>
+      <p>INT 353</p>
+       <a href="https://drive.google.com/drive/folders/1OlkB6Qd3Li2OGlw7jAVx6VyJu2l58mIg"><p>INT 301</p></a>
+       <a href="https://drive.google.com/drive/folders/1tKUnMFnJd5cCei5yhtPR5Y8WR6C_l-px"><p>INT 304</p></a>
+      <a href="https://drive.google.com/drive/folders/13VGCvbbb4tRdu-meQG1lPIl9EShuD7uJ"><p>INT 306</p></a>
+       <a href="https://drive.google.com/drive/folders/1NrD4B1VEBvL_thuk9MsBN-6qX0fyNCr3"><p>INT 307</p></a>
+     <a href="https://drive.google.com/drive/folders/17SNry0NT3MuHYd6fTJcGVPrlI4zT9Gu4"> <p>INT 397-8</p></a>
+      <h2>Lecture</h2>
+    
+      <p><a href="https://1drv.ms/u/s!Aq-t18_ljrIz2A9M5_1xV-K7YerB?e=EFanYU">In Class Note of SIT.KMUTT Notebook</a></p>
+      <p><a href="">At Home Note of SIT.KMUTT Notebook</a></p>
+      <p><a href="https://1drv.ms/u/s!Ah7D9kjR0GIJacmzE_o2qIAjlFk?e=dP0FHj">In Class/At Home Note of SIT.KMUTT Notebook</a></p>
+       <h2>Google Drive for Works of SIT.KMUTT</h2>
+      <p><a href="https://drive.google.com/open?id=1KTH1MJEo1Bp-ThlWhnXWXpetlssVOcQ7">Personal Google Drive For All Works Of KMUTT</a></p>
+       <p><a href="https://drive.google.com/open?id=1-1d2TGIR8NIsdIkGHbB5vvwHdAA61NKu">SIT.KMUTT Google Drive For All Works Of KMUTT</a></p>
+        <h2>One Drive for Works of SIT.KMUTT</h2>
+       <p><a href="">Presonal One Drive For All Works</a></p>
+       <p><a href="">SIT.KMUTT One Drive For All Works</a></p>
+    
+    </div>
+  </div>
+</div>
+
+
+
+<style type="text/css">
+ 
+  </style>             
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
 <!-- <br><br> -->
 <!-- <br><br> -->
 <!-- <br><br> -->
@@ -83,17 +529,76 @@
 <iframe height="100%" width="100%" src="iframe_menutool2.html" name="iframe_b" frameborder="0" scrolling="no" style= "position: absolute; z-index: 99"></iframe>
  -->
 
-  
-<footer>
-
-  <p>site--nuntuch.repl.co namely devlop of nuntuch.github.io for education and practice use pure html css js  </p>
-
-</footer>
 
 
-<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<button onclick="topFunction()" id="myBtn" title="Go to top"><!--Top--></button>
+
+<!-- hitwebcounter Code START -->
+<a href="https://www.hitwebcounter.com" target="_blank">
+<img src="https://hitwebcounter.com/counter/counter.php?page=7179931&style=0010&nbdigits=5&type=page&initCount=0" title="Visits Count" Alt="analytics counter"   border="0" >
+</a>
+
+<!-- hitwebcounter Code START -->
+<a href="https://www.hitwebcounter.com" target="_blank">
+<img src="https://hitwebcounter.com/counter/counter.php?page=7198861&style=0010&nbdigits=5&type=ip&initCount=0" title="User Stats" Alt="webcounterwebsite"   border="0" >
+</a>                                    
+                                    
+                                        
+                                          
+                            
+  <br><br><br><br><br>
+
+
+
+<!-- facebook Post -->
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      xfbml      : true,
+      version    : 'v4.0'
+    });
+  }; 
+</script>
+<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+
+
+
 
 <script src="script.js"> 
 </script>
 </body>
+<footer>
+
+  <p>site--nuntuch.repl.co namely devlop of nuntuch.github.io for education and practice use pure html css js  </p>
+
+<!-- </div> -->
+</footer>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

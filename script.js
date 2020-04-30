@@ -78,6 +78,21 @@ function myFunction9() {
 function myFunction10() {
   document.getElementById("myDropdown10").classList.toggle("show");
 }
+function myFunction11() {
+  document.getElementById("myDropdown11").classList.toggle("show");
+}
+function myFunction12() {
+  document.getElementById("myDropdown12").classList.toggle("show");
+}
+function myFunction13() {
+  document.getElementById("myDropdown13").classList.toggle("show");
+}
+function myFunction14() {
+  document.getElementById("myDropdown14").classList.toggle("show");
+}
+function myFunction15() {
+  document.getElementById("myDropdown15").classList.toggle("show");
+}
 
 // Close the dropdown menu if the user clicks outside of it
 window.onclick = function(event) {
@@ -98,3 +113,125 @@ window.onclick = function(event) {
 
 // ___________________________________________________________________
 // /DropDownBTH Menu Left
+
+
+// Hide content
+
+// function HideContentFunction() {
+ if (sessionStorage.getItem("status")!= "admin"){
+    // var x = document.getElementById("hide_if_ms-team-vdo");
+    var x = document.getElementById("hide_if_ms-team-vdo");
+    // var x = document.getElementById("if_ms-team-vdo");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  // }
+
+ var y = document.getElementById("fb-postv");
+    
+    if (y.style.display === "none") {
+      y.style.display = "block";
+    } else {
+      y.style.display = "none";
+    }
+  
+  
+ var z = document.getElementById("Lecture");
+    
+    if (z.style.display === "none") {
+      z.style.display = "block";
+    } else {
+      z.style.display = "none";
+    }
+
+  var a = document.getElementById("My-Tools");
+    
+    if (a.style.display === "none") {
+      a.style.display = "block";
+    } else {
+      a.style.display = "none";
+    }
+
+ var b = document.getElementById("workdrive");
+    
+    if (b.style.display === "none") {
+      b.style.display = "block";
+    } else {
+      b.style.display = "none";
+    }
+
+ var c = document.getElementById("DriveforWorksofSIT.KMUTT");
+    
+    if (c.style.display === "none") {
+      c.style.display = "block";
+    } else {
+      c.style.display = "none";
+    }
+ 
+ var d = document.getElementById("head_if_ms-team-vdo");
+    
+    if (d.style.display === "none") {
+      d.style.display = "block";
+    } else {
+      d.style.display = "none";
+    }
+ var f = document.getElementById("head_if_youtubelearner");
+    
+    if (f.style.display === "none") {
+      f.style.display = "block";
+    } else {
+      f.style.display = "none";
+    }
+ var g = document.getElementById("if_youtubelearner");
+    
+    if (g.style.display === "none") {
+      g.style.display = "block";
+    } else {
+      g.style.display = "none";
+    }
+
+//  var e = document.getElementById("tail_if_ms-team-vdo");
+    
+//     if (e.style.display === "none") {
+//       e.style.display = "block";
+//     } else {
+//       e.style.display = "none";
+//     }
+
+
+  }
+
+// }
+
+
+
+  // onload = () => {
+  //   const webview = document.querySelector('webview')
+  //   const indicator = document.querySelector('.indicator')
+
+  //   const loadstart = () => {
+  //     indicator.innerText = 'loading...'
+  //   }
+
+  //   const loadstop = () => {
+  //     indicator.innerText = ''
+  //   }
+
+  //   webview.addEventListener('did-start-loading', loadstart)
+  //   webview.addEventListener('did-stop-loading', loadstop)
+  // }
+
+
+
+
+
+
+
+
+
+
+
+
+

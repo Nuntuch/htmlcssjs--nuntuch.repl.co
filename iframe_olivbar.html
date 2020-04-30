@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{
+  color : white;
+}
+a{
+  color : white;
+}
+
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<center>
+<div style=" border-radius: 1em ;background-color: black;"> 
+<br>
+<center><h3>LESSON ON OLIV</h3></center>
+<br>
+
+<div class="slidecontainer"  style=" border-radius: 1em ;background-color: black;"> 
+  <input type="range" min="1" max="120" value="50" class="slider" id="myRange">
+  <!-- <a id="subjectlink" href="">Go</a> -->
+  
+  <!-- <p>Value: <span id="demo"></span></p>
+ <a id="subjectlink" href="https://learning.sit.kmutt.ac.th/#/home">Go</a>subject"></span></p>
+  <a id="subjectlink" href="https://learning.sit.kmutt.ac.th/#/home">Go</a> -->
+
+<center>
+  
+<p style=" border-radius: 1em ;background-color: gray;   padding: 9px">
+  Subject: <span id="subject"></span> &nbsp&nbsp&nbsp
+  
+  <a id="subjectlink" href="https://learning.sit.kmutt.ac.th/#/home" target="_blank" >Go</a> &nbsp&nbsp&nbsp
+  
+  Value: <span id="demo"  ></span> &nbsp&nbsp&nbsp
+</p>
+  
+  </div>
+</center>
+
+</div>
+
+</center>
+<script>
+
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+var output2 = document.getElementById("subject");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+
+if(this.value > 0  && this.value <= 20){
+  this.subject = "INT206";
+  document.getElementById("subjectlink").href="https://learning.sit.kmutt.ac.th/#/subjects/163";
+}else if(this.value > 20  && this.value <= 40){
+  this.subject = "INT301";
+  document.getElementById("subjectlink").href="https://learning.sit.kmutt.ac.th/#/subjects/167";
+
+}else if(this.value > 40  && this.value <= 60){
+  this.subject = "INT304";
+  document.getElementById("subjectlink").href="https://learning.sit.kmutt.ac.th/#/subjects/170";
+
+}else if(this.value > 60  && this.value <= 80){
+  this.subject = "INT306";
+  document.getElementById("subjectlink").href="https://learning.sit.kmutt.ac.th/#/subjects/174";
+
+}else if(this.value > 80  && this.value <= 100){
+  this.subject = "INT307";
+  document.getElementById("subjectlink").href="https://learning.sit.kmutt.ac.th/#/subjects/175";
+
+}else if(this.value > 100  && this.value <= 120){
+  this.subject = "INT397-8";
+  document.getElementById("subjectlink").href="https://learning.sit.kmutt.ac.th/#/subjects/535";
+
+}
+
+  output2.innerHTML = this.subject;
+}
+
+// <!-- 
+//  var subjectlink = document.getElementById("subjectlinkint206");
+    
+//     if (subjectlink.style.display === "none") {
+//       subjectlink.style.display = "block";
+//     } else {
+//       subjectlink.style.display = "none";
+//     }
+//    -->
+
+</script>
+
+</body>
+</html>
